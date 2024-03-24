@@ -66,7 +66,7 @@ Educated guesses about the 28-pin Motorola SC87253P on the logic board led many 
 Loading the ROM file into [Ghidra](https://ghidra-sre.org/) was very satisfying. There are a few vectors located at the end of the ROM address range. I asked Ghidra to disassemble at each of the addresses in the table, and quickly had the entire ROM disassembled.
 
 | Address | Name   | Function                  |
-| ======= | ====== | ========================= |
+| ------- | ------ | ------------------------- |
 |  0x07f6 | TWIRQ  | Timer wait vector         |
 |  0x07f8 | TIRQ   | Timer internal vector     |
 |  0x07fa | KEYSCN | External interrupt vector |
