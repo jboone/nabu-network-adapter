@@ -4,7 +4,7 @@ In 1983, the [NABU Network](https://en.wikipedia.org/wiki/NABU_Network) was amon
 
 The NABU system consisted of an 8-bit, Z80-based PC, a Network Adapter that interfaced the PC to the cable TV network, and the cable TV network infrastructure that put data onto the cable TV network. The network infrastructure seems to have largely disappeared when NABU went out of business.
 
-There are many NABU PCs still in use today, thanks to great strides made by [retro-computing hobbyists](https://nabu.ca) in applying modern computer hardware to replace the Network Adapter and cable infrastructure. But so far, nobody has brought the Network Adapters back to life. They're just boat anchors. But if we knew enough about how they worked, could we simulate the cable TV signal and make a Network Adapter work again in 2024?
+There are many NABU PCs still in use today, thanks to great strides made by [retro-computing hobbyists](https://nabu.ca) in applying modern computer hardware to replace the Network Adapter and the defunct cable infrastructure it relies on. But so far, nobody has brought the Network Adapters back to life. They're just boat anchors. But if we knew enough about how they worked, could we simulate the cable TV signal and make a Network Adapter work again in 2024?
 
 ## Acknowledgements
 
