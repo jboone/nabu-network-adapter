@@ -22,7 +22,7 @@ What do we need to learn about the NABU Network Adapter in order to interface to
 
 ## Available Documentation
 
-__TODO__: Things learned elsewhere, including likely modulation (OQPSK) and bit rate (6.3 Mbits/s) from the document "Cable Data Communications Systems 1983".
+__TODO__: Things learned elsewhere, including likely modulation ([OQPSK](https://en.wikipedia.org/wiki/Phase-shift_keying#Offset_QPSK_(OQPSK))) and bit rate (6.3 Mbits/s) from the document "[Cable Data Communications Systems, 1983](https://publications.gc.ca/site/eng/9.879204/publication.html)".
 
 ## Disassembly and Inspection
 
@@ -57,11 +57,11 @@ __TODO__: PAL, PAL no. matching
 __TODO__: FIFO + RAM
 __TODO__: UART
 
-Educated guesses about the 28-pin Motorola SC87253P on the logic board led many of us to conclude independently that it's likely a mask ROM MC6800, most likely the MC6805P2. The pinout matches the circuit board layout very well. Power, clock, and reset signals match, and collections of data signals match the ports on the MC6805P2.
+Educated guesses about the 28-pin Motorola SC87253P on the logic board led many of us to conclude independently that it's likely a mask ROM [MC6805](http://bitsavers.trailing-edge.com/components/motorola/6805/6805_Users_Manual_2ed_1983.pdf), most likely the MC6805P2. The pinout matches the circuit board layout very well. Power, clock, and reset signals match, and collections of data signals match the ports on the MC6805P2.
 
 ## Firmware
 
-@philpem extracted the firmware from the SC87253P, using a [well-documented attack](https://seanriddle.com/mc6805p2.html).
+@philpem extracted the firmware from the SC87253P mask ROM, using a [well-documented attack](https://seanriddle.com/mc6805p2.html). __TODO__: Read up on how it works, and describe and/or demonstrate
 
 Loading the ROM file into [Ghidra](https://ghidra-sre.org/) was very satisfying. There are a few vectors located at the end of the ROM address range. I asked Ghidra to disassemble at each of the addresses in the table, and quickly had the entire ROM disassembled.
 
@@ -73,7 +73,7 @@ Loading the ROM file into [Ghidra](https://ghidra-sre.org/) was very satisfying.
 |  0x07fc | SWI    | Software interrupt vector |
 |  0x07fe | RESET  | Reset vector              |
 
-My attention immediately turned to code which manipulated PORTA. Ghidra helpfully lists out all the functions that read or write from PORTA, and I quickly identified a function that waits for a byte to be available at the UART, and then reads and returns it. Hey, this is fun!
+My attention immediately turned to code which manipulated data through PORTA using control signals on PORTB and PORTC. Ghidra helpfully lists out all the functions that read or write from PORTA, and I quickly identified a function that waits for a byte to be available at the UART, and then reads and returns it. Hey, this is fun!
 
 __TODO__: What does the subscriber entitlement work? Is it the microprocessor? Seems unlikely to be the PC (security) or the PAL (complexity).
 
