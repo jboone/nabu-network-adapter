@@ -46,3 +46,41 @@ Skipping the two soldered-shut compartments, the fourth compartment contains two
 The fifth compartment contains another SL3127C transistor array and another MC1741C op-amp, as well as a 14.270 MHz crystal. There's also a suspicious cluster of eight diodes, and four TO-92s labeled with "CR" and a number, suggesting they're actually diodes, not transistors. These diode clusters suggest mixers, which are used to perform frequency shifting. Other interesting labels on the circuit board are "IF INPUT", and two "DATA OUT" test points. The compartment takes +18V and has one other signal leaving the compartment, but not connected to anything on the outside.
 
 The sixth and last compartment has far less analog circuitry. It contains two MC1414P dual differential comparators, two 74LS86 quad XOR logic gates, two 74LS74 dual D flip-flops, and one 74LS00 quad NAND gates. There's also a 3.1555 MHz crystal. It takes +18V and +5V, and has two signals leaving the compartment, labeled "DATA" and "CLK". There's a few test points, a couple of pads marked "X". On the back side of the circuit board, there are two capacitors wired from the "X" pads to the adjacent compartment. Given the data and clock signals leaving the compartment (which go to the logic board), it seems quite safe to assume this is some portion (maybe all of?) the demodulator.
+
+__TODO__: Testing.
+
+### Logic Board
+
+__TODO__: Descrambler
+__TODO__: Frame synchronizer(?)
+__TODO__: PAL, PAL no. matching
+__TODO__: FIFO + RAM
+__TODO__: UART
+
+Educated guesses about the 28-pin Motorola SC87253P on the logic board led many of us to conclude independently that it's likely a mask ROM MC6800, most likely the MC6805P2. The pinout matches the circuit board layout very well. Power, clock, and reset signals match, and collections of data signals match the ports on the MC6805P2.
+
+## Firmware
+
+@philpem extracted the firmware from the SC87253P, using a [well-documented attack](https://seanriddle.com/mc6805p2.html).
+
+Loading the ROM file into [Ghidra](https://ghidra-sre.org/) was very satisfying. There are a few vectors located at the end of the ROM address range. I asked Ghidra to disassemble at each of the addresses in the table, and quickly had the entire ROM disassembled.
+
+| Address | Name   | Function                  |
+| ======= | ====== | ========================= |
+|  0x07f6 | TWIRQ  | Timer wait vector         |
+|  0x07f8 | TIRQ   | Timer internal vector     |
+|  0x07fa | KEYSCN | External interrupt vector |
+|  0x07fc | SWI    | Software interrupt vector |
+|  0x07fe | RESET  | Reset vector              |
+
+My attention immediately turned to code which manipulated PORTA. Ghidra helpfully lists out all the functions that read or write from PORTA, and I quickly identified a function that waits for a byte to be available at the UART, and then reads and returns it. Hey, this is fun!
+
+__TODO__: What does the subscriber entitlement work? Is it the microprocessor? Seems unlikely to be the PC (security) or the PAL (complexity).
+
+## Bitstream
+
+__TODO__: How to build a cycle
+
+## Modulation
+
+__TODO__: GNU Radio flowgraph to transmit a cycle to a Network Adapter
