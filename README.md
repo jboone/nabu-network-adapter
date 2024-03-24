@@ -84,3 +84,11 @@ __TODO__: How to build a cycle
 ## Modulation
 
 __TODO__: GNU Radio flowgraph to transmit a cycle to a Network Adapter
+
+## License
+
+The contents of this repository, when not covered by other copyrights, are licensed as follows:
+
+* Software, firmware, data: [CC0 1.0](https://creativecommons.org/public-domain/cc0/) (Creative Commons Zero, version 1.0)
+* Hardware schematics, board designs: [CERN-OHL-P-2.0](https://ohwr.org/project/cernohl/wikis/Documents/CERN-OHL-version-2) (CERN Open Hardware License (OHL), version 2, permissive)
+
