@@ -53,7 +53,10 @@ __TODO__: Testing.
 
 ### Logic Board
 
-__TODO__: Descrambler
+__TODO__: How did we identify the functional blocks? How did we hypothesize what they did? What do each of the fumctional blocks accomplish -- why are they there?
+
+The descrambler appears to be a [multiplicative descrambler](https://en.wikipedia.org/wiki/Scrambler#Multiplicative_(self-synchronizing)_scramblers), which is self-synchronizing. We can rule out an additive descrambler because there's no visible means in the schematic to initialize the scrambler's state. The polynomial is defined by which taps (flip-flop outputs) are being XORed together. The schematic shows taps at U20.Q0, U20.Q3, and U13.Q4. Rewritten as a polynomial equatiom, that'd be x^20 + x^3 + x^0. @philpem identified this polynomial as being used in [IESS-308](https://www.intelsat.com/wp-content/uploads/2020/08/IESS-308E11.pdf) and [ITU V.35](https://www.itu.int/rec/T-REC-V.35-198410-W/en).
+
 __TODO__: Frame synchronizer(?)
 __TODO__: PAL, PAL no. matching
 __TODO__: FIFO + RAM
