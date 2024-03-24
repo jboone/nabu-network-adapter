@@ -2,13 +2,15 @@
 
 In 1983, the [NABU Network](https://en.wikipedia.org/wiki/NABU_Network) was among the first computer systems to distribute software and data over a high-speed cable television network, predating modern cable modem technology by about a decade. Unfortunately, NABU did not succeed as a business, and the NABU Network went dark in 1985.
 
-The NABU system consisted of an 8-bit, Z80-based PC, a Network Adapter that interfaced the PC to the cable TV network, and the cable TV network infrastructure that put data onto the cable TV network. The network infrastructure seems to have largely disappeared when NABU went out of business. But there are many PCs and Network Adapters available today, and [retro-computing hobbyists](https://nabu.ca) have made great strides in making these computers useful again, using modern computer hardware to replace the Network Adapter. But so far, nobody has brought the Network Adapters back to life. They're just boat anchors. But if we knew enough about how they worked, could we simulate the cable TV signal and make a Network Adapter work again in 2024?
+The NABU system consisted of an 8-bit, Z80-based PC, a Network Adapter that interfaced the PC to the cable TV network, and the cable TV network infrastructure that put data onto the cable TV network. The network infrastructure seems to have largely disappeared when NABU went out of business.
+
+There are many NABU PCs still in use today, thanks to great strides made by [retro-computing hobbyists](https://nabu.ca) in applying modern computer hardware to replace the Network Adapter and cable infrastructure. But so far, nobody has brought the Network Adapters back to life. They're just boat anchors. But if we knew enough about how they worked, could we simulate the cable TV signal and make a Network Adapter work again in 2024?
 
 ## Acknowledgements
 
 The information in this repository is not mine alone, but a summary of collaboration with several people. Hats off especially to the folks in the NABU Discord server.
 
-Here's some links to collaborators and their NABU Adapter learnings:
+Here are links to collaborators and their NABU Network Adapter learnings:
 
 * [Phil Pemberton's NABU Adapter model NA-2 internals](https://philpem.me.uk/oldcomp/nabu/adaptor_internals)
 
