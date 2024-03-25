@@ -239,7 +239,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "nabu-na.kicad_pro",
+    "filename": "nabu-na-logic.kicad_pro",
     "version": 1
   },
   "net_settings": {
@@ -385,6 +385,14 @@
     [
       "5d908a34-2e9b-4fde-8e08-55fee65e9e02",
       "Root"
+    ],
+    [
+      "7d2dc3b6-3b5c-4681-b455-8ac0616e796c",
+      "Descrambler"
+    ],
+    [
+      "92312838-3c95-46e1-ba46-e803acb6c6de",
+      "Processor"
     ]
   ],
   "text_variables": {}

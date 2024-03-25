@@ -1,0 +1,7 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "motorola")(type "KiCad")(uri "${KIPRJMOD}/motorola.kicad_sym")(options "")(descr ""))
+  (lib (name "western_digital")(type "KiCad")(uri "${KIPRJMOD}/western_digital.kicad_sym")(options "")(descr ""))
+  (lib (name "signetics")(type "KiCad")(uri "${KIPRJMOD}/signetics.kicad_sym")(options "")(descr ""))
+  (lib (name "intel")(type "KiCad")(uri "${KIPRJMOD}/intel.kicad_sym")(options "")(descr ""))
+)
