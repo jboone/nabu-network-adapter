@@ -2,13 +2,15 @@
 
 In 1983, the [NABU Network](https://en.wikipedia.org/wiki/NABU_Network) was among the first computer systems to distribute software and data over a high-speed cable television network, predating modern cable modem technology by about a decade. Unfortunately, NABU did not succeed as a business, and the NABU Network went dark in 1985.
 
-The NABU system consisted of an 8-bit, Z80-based PC, a Network Adapter that interfaced the PC to the cable TV network, and the cable TV network infrastructure that put data onto the cable TV network. The network infrastructure seems to have largely disappeared when NABU went out of business. But there are many PCs and Network Adapters available today, and [retro-computing hobbyists](https://nabu.ca) have made great strides in making these computers useful again, using modern computer hardware to replace the Network Adapter. But so far, nobody has brought the Network Adapters back to life. They're just boat anchors. But if we knew enough about how they worked, could we simulate the cable TV signal and make a Network Adapter work again in 2024?
+The NABU system consisted of an 8-bit, Z80-based PC, a Network Adapter that interfaced the PC to the cable TV network, and the cable TV network infrastructure that put data onto the cable TV network. The network infrastructure seems to have largely disappeared when NABU went out of business.
+
+There are many NABU PCs still in use today, thanks to great strides made by [retro-computing hobbyists](https://nabu.ca) in applying modern computer hardware to replace the Network Adapter and the defunct cable infrastructure it relies on. But so far, nobody has brought the Network Adapters back to life. They're just boat anchors. But if we knew enough about how they worked, could we simulate the cable TV signal and make a Network Adapter work again in 2024?
 
 ## Acknowledgements
 
 The information in this repository is not mine alone, but a summary of collaboration with several people. Hats off especially to the folks in the NABU Discord server.
 
-Here's some links to collaborators and their NABU Adapter learnings:
+Here are links to collaborators and their NABU Network Adapter learnings:
 
 * [Phil Pemberton's NABU Adapter model NA-2 internals](https://philpem.me.uk/oldcomp/nabu/adaptor_internals)
 
@@ -39,7 +41,7 @@ We know this RF can contains some sort of cable TV receiver. It likely implement
 
 Two of the compartments are soldered shut, but when looking through the large adjustment holes, we can see there are large inductors, and there's no power terminals into these compoartments. A reasonable first guess is that these are passive filter stages.
 
-The compartment closest to the cable TV connection has a few ICs, an 8 MHz crystal, and an [monolithic microwave integrated circuit](https://en.wikipedia.org/wiki/Monolithic_microwave_integrated_circuit) or "MMIC". The MC145155P is a frequency synthesizer, the CA3140E is an operational amplifier, and the SP4632 is a frequency prescaler. There's +5V and +18V power going into the compartment, along with three signals (EN, D, CLK) which likely tie to the three control signals of the MC145155P. Labels on the circuit board include "RF IN" and "IF FILTER" (with a wire that goes into the adjacent compartment). From my experience, this all suggests this is the first frequency-shifting stage. Using an [EMC probe](https://www.beehive-electronics.com/probes.html), I can detect a strong 325 MHz signal.
+The compartment closest to the cable TV connection has a few ICs, an 8 MHz crystal, and a [monolithic microwave integrated circuit](https://en.wikipedia.org/wiki/Monolithic_microwave_integrated_circuit) or "MMIC". The MC145155P is a frequency synthesizer, the CA3140E is an operational amplifier, and the SP4632 is a frequency prescaler. There's +5V and +18V power going into the compartment, along with three signals (EN, D, CLK) which likely tie to the three control signals of the MC145155P. Labels on the circuit board include "RF IN" and "IF FILTER" (with a wire that goes into the adjacent compartment). From my experience, this all suggests this is the first frequency-shifting stage. Using an [EMC probe](https://www.beehive-electronics.com/probes.html), I can detect a strong 325 MHz signal.
 
 Skipping the two soldered-shut compartments, the fourth compartment contains two SL3127C high-frequency NPN transistor arrays and one MC1741C high-performance operational amplifier. The compartment only takes +18V power, and has one signal to/from the compartment. The only interesting labels is an "OUT" hole, which may be a test point.
 
@@ -51,7 +53,10 @@ __TODO__: Testing.
 
 ### Logic Board
 
-__TODO__: Descrambler
+__TODO__: How did we identify the functional blocks? How did we hypothesize what they did? What do each of the fumctional blocks accomplish -- why are they there?
+
+The descrambler appears to be a [multiplicative descrambler](https://en.wikipedia.org/wiki/Scrambler#Multiplicative_(self-synchronizing)_scramblers), which is self-synchronizing. We can rule out an additive descrambler because there's no visible means in the schematic to initialize the scrambler's state. The polynomial is defined by which taps (flip-flop outputs) are being XORed together. The schematic shows taps at U20.Q0, U20.Q3, and U13.Q4. Rewritten as a polynomial equatiom, that'd be x^20 + x^3 + x^0. @philpem identified this polynomial as being used in [IESS-308](https://www.intelsat.com/wp-content/uploads/2020/08/IESS-308E11.pdf) and [ITU V.35](https://www.itu.int/rec/T-REC-V.35-198410-W/en).
+
 __TODO__: Frame synchronizer(?)
 __TODO__: PAL, PAL no. matching
 __TODO__: FIFO + RAM
@@ -84,3 +89,11 @@ __TODO__: How to build a cycle
 ## Modulation
 
 __TODO__: GNU Radio flowgraph to transmit a cycle to a Network Adapter
+
+## License
+
+The contents of this repository, when not covered by other copyrights, are licensed as follows:
+
+* Software, firmware, data: [CC0 1.0](https://creativecommons.org/public-domain/cc0/) (Creative Commons Zero, version 1.0)
+* Hardware schematics, board designs: [CERN-OHL-P-2.0](https://ohwr.org/project/cernohl/wikis/Documents/CERN-OHL-version-2) (CERN Open Hardware License (OHL), version 2, permissive)
+
