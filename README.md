@@ -55,6 +55,22 @@ __TODO__: Testing.
 
 __TODO__: How did we identify the functional blocks? How did we hypothesize what they did? What do each of the fumctional blocks accomplish -- why are they there?
 
+Connector J3 comes from the RF can.
+
+| Pin | Function |
+| --- | -------- |
+|   1 | Ground   |
+|   2 | PLL ENB input, active high latch enable |
+|   3 | Received signal strength indication (RSSI)? |
+|   4 | PLL CLK input |
+|   5 | PLL DATA input, captured on clock rising edge  |
+|   6 | Ground    |
+|   7 | Demodulator clock output |
+|   8 | Ground    |
+|   9 | Demodulator data output, captured on clock rising edge |
+
+The RSSI signal is at a high voltage when no signal is present, or signal is very low signal strength. RSSI voltage drops to near 0V when signal is strong.
+
 The descrambler appears to be a [multiplicative descrambler](https://en.wikipedia.org/wiki/Scrambler#Multiplicative_(self-synchronizing)_scramblers), which is self-synchronizing. We can rule out an additive descrambler because there's no visible means in the schematic to initialize the scrambler's state. The polynomial is defined by which taps (flip-flop outputs) are being XORed together. The schematic shows taps at U20.Q0, U20.Q3, and U13.Q4. Rewritten as a polynomial equatiom, that'd be x^20 + x^3 + x^0. @philpem identified this polynomial as being used in [IESS-308](https://www.intelsat.com/wp-content/uploads/2020/08/IESS-308E11.pdf) and [ITU V.35](https://www.itu.int/rec/T-REC-V.35-198410-W/en).
 
 __TODO__: Frame synchronizer(?)
