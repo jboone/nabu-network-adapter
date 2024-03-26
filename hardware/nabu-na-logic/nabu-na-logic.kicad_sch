@@ -4526,6 +4526,721 @@
 				)
 			)
 		)
+		(symbol "Interface_LineDriver:UA9637"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -5.08 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "UA9637"
+				(at 5.08 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+				(at 0 -10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://pdf.datasheetcatalog.com/datasheets2/28/284473_1.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Dual differential line receiver, DIP-8"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Dual differential line receiver"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "DIP*W7.62mm*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "UA9637_0_1"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy -5.08 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy 5.08 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.54) (xy 0 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 5.08) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 5.08 0) (xy -5.08 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(text "+"
+					(at -4.064 1.8034 0)
+					(effects
+						(font
+							(size 1.778 1.778)
+						)
+					)
+				)
+				(text "-"
+					(at -4.064 -3.2766 0)
+					(effects
+						(font
+							(size 1.778 1.778)
+						)
+					)
+				)
+			)
+			(symbol "UA9637_1_1"
+				(pin power_in line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 12.7 0 180)
+					(length 7.62)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 -2.54 0)
+					(length 7.62)
+					(name "IN-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 2.54 0)
+					(length 7.62)
+					(name "IN+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "UA9637_2_1"
+				(pin power_in line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 12.7 0 180)
+					(length 7.62)
+					(name "OUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -7.62 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 -2.54 0)
+					(length 7.62)
+					(name "IN-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -12.7 2.54 0)
+					(length 7.62)
+					(name "IN+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Interface_LineDriver:UA9638CP"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at -7.62 10.16 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "UA9638CP"
+				(at 2.54 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+				(at 0 -12.7 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ua9638.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Dual high-speed differential line driver, DIP-8"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Dual high-speed differential line driver"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "DIP*W7.62mm*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "UA9638CP_0_1"
+				(polyline
+					(pts
+						(xy -7.62 5.08) (xy -7.62 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 5.08) (xy -7.62 7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -7.62 7.62) (xy 7.62 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 -5.08) (xy -2.54 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 5.08) (xy -2.54 7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -5.08) (xy 7.62 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 -2.54) (xy 2.54 -5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 5.08) (xy 2.54 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 0) (xy -7.62 -7.62)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 7.62 5.08) (xy 2.54 5.08)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 2.54 -2.54)
+					(radius 0.762)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "UA9638CP_1_1"
+				(pin power_in line
+					(at -2.54 10.16 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 0 0)
+					(length 7.62)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -10.16 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 -5.08 180)
+					(length 7.62)
+					(name "OUTA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 5.08 180)
+					(length 7.62)
+					(name "OUTB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "UA9638CP_2_1"
+				(pin power_in line
+					(at -2.54 10.16 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -15.24 0 0)
+					(length 7.62)
+					(name "IN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at -2.54 -10.16 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 -5.08 180)
+					(length 7.62)
+					(name "OUTA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 15.24 5.08 180)
+					(length 7.62)
+					(name "OUTB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "power:+5V"
 			(power)
 			(pin_numbers hide)
@@ -4768,6 +5483,12 @@
 		(uuid "2cfa1248-66a6-49f5-b041-0c27e0909d41")
 	)
 	(junction
+		(at 339.09 158.75)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2d3d1c5d-bd03-4977-b506-f61704a9bfad")
+	)
+	(junction
 		(at 299.72 182.88)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -4899,6 +5620,78 @@
 		(at 387.35 80.01)
 		(uuid "f6c0c655-fca8-4ee6-ac54-5c0c5422f5a3")
 	)
+	(bus_entry
+		(at 337.82 43.18)
+		(size -2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2d54b0ed-7604-420f-b8e5-f302d78a40f4")
+	)
+	(bus_entry
+		(at 337.82 45.72)
+		(size -2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5eb59453-8b95-4f11-986c-34fde8f6c85e")
+	)
+	(bus_entry
+		(at 337.82 50.8)
+		(size -2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "83e75e41-4172-4d7e-ad46-31f72b761d58")
+	)
+	(bus_entry
+		(at 337.82 38.1)
+		(size -2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "957d47f2-77ad-4b98-9109-aa7954997024")
+	)
+	(bus_entry
+		(at 337.82 53.34)
+		(size -2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c90ab811-9c6e-403c-af1e-37bff228fc80")
+	)
+	(bus_entry
+		(at 337.82 55.88)
+		(size -2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cd8ae97a-9ed0-4dba-b74c-d5cd41d8faa6")
+	)
+	(bus_entry
+		(at 337.82 48.26)
+		(size -2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4665fb1-ed4b-4a7c-879b-5d6191325ca1")
+	)
+	(bus_entry
+		(at 337.82 40.64)
+		(size -2.54 2.54)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e3d168e9-de8c-4020-b030-5253061b30c5")
+	)
 	(wire
 		(pts
 			(xy 228.6 92.71) (xy 243.84 92.71)
@@ -4949,6 +5742,16 @@
 		)
 		(uuid "089fb9dc-1ea2-4b4f-a410-c1179b4bfe60")
 	)
+	(bus
+		(pts
+			(xy 107.95 66.04) (xy 114.3 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0955c5c9-44d2-466d-9f96-c5db6be64f79")
+	)
 	(wire
 		(pts
 			(xy 231.14 63.5) (xy 231.14 77.47)
@@ -4991,7 +5794,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 165.1) (xy 33.02 170.18)
+			(xy 50.8 165.1) (xy 50.8 170.18)
 		)
 		(stroke
 			(width 0)
@@ -5038,6 +5841,16 @@
 			(type default)
 		)
 		(uuid "10c04766-95cf-43e0-a83f-4b1811fb3139")
+	)
+	(bus
+		(pts
+			(xy 337.82 40.64) (xy 337.82 43.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "12c40668-fa0b-45d9-9662-b7d9f7512013")
 	)
 	(wire
 		(pts
@@ -5131,7 +5944,7 @@
 	)
 	(wire
 		(pts
-			(xy 30.48 165.1) (xy 33.02 165.1)
+			(xy 30.48 165.1) (xy 50.8 165.1)
 		)
 		(stroke
 			(width 0)
@@ -5191,7 +6004,7 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 40.64) (xy 342.9 40.64)
+			(xy 322.58 40.64) (xy 335.28 40.64)
 		)
 		(stroke
 			(width 0)
@@ -5228,6 +6041,16 @@
 			(type default)
 		)
 		(uuid "257f061c-20cb-4231-80a8-cb34f0845f93")
+	)
+	(wire
+		(pts
+			(xy 152.4 66.04) (xy 177.8 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "26da4a27-6ed2-4cb2-8d4a-f0ee149240ab")
 	)
 	(wire
 		(pts
@@ -5341,13 +6164,23 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 58.42) (xy 342.9 58.42)
+			(xy 322.58 58.42) (xy 335.28 58.42)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
 		(uuid "3ad11fb7-45f1-4025-a12c-3edf6269d1a5")
+	)
+	(bus
+		(pts
+			(xy 107.95 22.86) (xy 107.95 66.04)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3c349804-1b70-4625-b55d-d487a98de932")
 	)
 	(wire
 		(pts
@@ -5358,6 +6191,16 @@
 			(type default)
 		)
 		(uuid "3e839f62-a728-42d1-b152-6c69b925297e")
+	)
+	(bus
+		(pts
+			(xy 337.82 48.26) (xy 337.82 50.8)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3edc8cb0-7aed-4274-bc91-39c34f1b949f")
 	)
 	(wire
 		(pts
@@ -5389,6 +6232,16 @@
 		)
 		(uuid "45d7c21d-c668-4e4b-8e00-52ad1a92ebf0")
 	)
+	(bus
+		(pts
+			(xy 337.82 38.1) (xy 337.82 40.64)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4850f171-e3a1-48c1-b110-44b6b3662e29")
+	)
 	(wire
 		(pts
 			(xy 246.38 92.71) (xy 264.16 92.71)
@@ -5401,7 +6254,7 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 43.18) (xy 342.9 43.18)
+			(xy 322.58 43.18) (xy 335.28 43.18)
 		)
 		(stroke
 			(width 0)
@@ -5449,9 +6302,19 @@
 		)
 		(uuid "4fb74e52-bfc5-43f6-9516-7106596904e3")
 	)
+	(bus
+		(pts
+			(xy 337.82 22.86) (xy 107.95 22.86)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5130a7d0-0fd9-4ccd-80bf-b4253e475247")
+	)
 	(wire
 		(pts
-			(xy 322.58 45.72) (xy 342.9 45.72)
+			(xy 322.58 45.72) (xy 335.28 45.72)
 		)
 		(stroke
 			(width 0)
@@ -5468,6 +6331,16 @@
 			(type default)
 		)
 		(uuid "53de2e57-2374-4f53-839a-3478c8d0b656")
+	)
+	(bus
+		(pts
+			(xy 337.82 53.34) (xy 337.82 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "55f5a873-d3ce-497f-a4b3-203d758a1095")
 	)
 	(wire
 		(pts
@@ -5538,6 +6411,16 @@
 			(type default)
 		)
 		(uuid "5f189df9-b2a0-4305-8675-02589defb955")
+	)
+	(wire
+		(pts
+			(xy 177.8 158.75) (xy 339.09 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "668a0385-51a7-4dab-908e-b72e120183c9")
 	)
 	(wire
 		(pts
@@ -5801,7 +6684,7 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 48.26) (xy 342.9 48.26)
+			(xy 322.58 48.26) (xy 335.28 48.26)
 		)
 		(stroke
 			(width 0)
@@ -5881,7 +6764,7 @@
 	)
 	(wire
 		(pts
-			(xy 379.73 148.59) (xy 379.73 92.71)
+			(xy 379.73 158.75) (xy 379.73 92.71)
 		)
 		(stroke
 			(width 0)
@@ -5911,7 +6794,7 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 71.12) (xy 50.8 160.02)
+			(xy 55.88 76.2) (xy 55.88 160.02)
 		)
 		(stroke
 			(width 0)
@@ -6038,6 +6921,16 @@
 			(type default)
 		)
 		(uuid "a0db6da1-1c99-4431-acac-0ed9065f3e35")
+	)
+	(bus
+		(pts
+			(xy 337.82 45.72) (xy 337.82 48.26)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a1cc0a80-5855-4f5d-985f-ac07f10772dc")
 	)
 	(wire
 		(pts
@@ -6191,7 +7084,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 71.12) (xy 50.8 71.12)
+			(xy 114.3 76.2) (xy 55.88 76.2)
 		)
 		(stroke
 			(width 0)
@@ -6229,6 +7122,16 @@
 		)
 		(uuid "b5a0a586-c112-49cf-b194-77aca3d21850")
 	)
+	(bus
+		(pts
+			(xy 337.82 50.8) (xy 337.82 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6467b94-14b9-4760-a9dd-5e0ec3bf77e2")
+	)
 	(wire
 		(pts
 			(xy 312.42 152.4) (xy 325.12 152.4)
@@ -6251,7 +7154,7 @@
 	)
 	(wire
 		(pts
-			(xy 339.09 190.5) (xy 339.09 148.59)
+			(xy 339.09 190.5) (xy 339.09 158.75)
 		)
 		(stroke
 			(width 0)
@@ -6261,7 +7164,7 @@
 	)
 	(wire
 		(pts
-			(xy 339.09 148.59) (xy 379.73 148.59)
+			(xy 339.09 158.75) (xy 379.73 158.75)
 		)
 		(stroke
 			(width 0)
@@ -6318,6 +7221,16 @@
 			(type default)
 		)
 		(uuid "bc36c370-18e7-4a11-942e-ace063150487")
+	)
+	(bus
+		(pts
+			(xy 337.82 43.18) (xy 337.82 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bca10ca0-eb03-419f-9ca8-5ec6da2ce2cf")
 	)
 	(wire
 		(pts
@@ -6421,7 +7334,7 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 55.88) (xy 342.9 55.88)
+			(xy 322.58 55.88) (xy 335.28 55.88)
 		)
 		(stroke
 			(width 0)
@@ -6481,6 +7394,16 @@
 	)
 	(wire
 		(pts
+			(xy 177.8 66.04) (xy 177.8 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d6f3b1cf-c654-4c6b-a2d0-c3b3ef5a90d3")
+	)
+	(wire
+		(pts
 			(xy 228.6 82.55) (xy 264.16 82.55)
 		)
 		(stroke
@@ -6531,7 +7454,7 @@
 	)
 	(wire
 		(pts
-			(xy 50.8 160.02) (xy 30.48 160.02)
+			(xy 55.88 160.02) (xy 30.48 160.02)
 		)
 		(stroke
 			(width 0)
@@ -6551,7 +7474,7 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 50.8) (xy 342.9 50.8)
+			(xy 322.58 50.8) (xy 335.28 50.8)
 		)
 		(stroke
 			(width 0)
@@ -6601,7 +7524,7 @@
 	)
 	(wire
 		(pts
-			(xy 322.58 53.34) (xy 342.9 53.34)
+			(xy 322.58 53.34) (xy 335.28 53.34)
 		)
 		(stroke
 			(width 0)
@@ -6729,6 +7652,16 @@
 		)
 		(uuid "fe2d9511-3329-46cf-80d7-09f3b9bd9d77")
 	)
+	(bus
+		(pts
+			(xy 337.82 22.86) (xy 337.82 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ffd06c14-ecea-4ea3-91a4-98c77f8ba5f4")
+	)
 	(label "DEMOD_CLK"
 		(at 35.56 114.3 0)
 		(fields_autoplaced yes)
@@ -6750,6 +7683,138 @@
 			(justify left bottom)
 		)
 		(uuid "057df73b-c048-4556-8a9a-39f76a66fe29")
+	)
+	(label "DESCR_D3"
+		(at 335.28 48.26 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "060510ad-53d0-473a-a633-1fe81050e26b")
+	)
+	(label "DESCR_D4"
+		(at 335.28 50.8 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "145dad57-3547-4fa1-9cf3-e39c81b6b86a")
+	)
+	(label "POWER_LED_K"
+		(at 33.02 167.64 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "187c5c15-64df-49e6-b9b5-2a5c510c2fcc")
+	)
+	(label "CABLE_LED_K"
+		(at 33.02 162.56 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "204afc42-e7eb-42a5-bcbb-49809d1ae5ce")
+	)
+	(label "DESCR_D7"
+		(at 335.28 58.42 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "3017a7b9-49ee-4d4b-b368-3b8bf795f3ed")
+	)
+	(label "DESCR_D2"
+		(at 335.28 45.72 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "409a7e46-3fbc-428f-958b-9fb5861b1319")
+	)
+	(label "DESCR_D1"
+		(at 335.28 43.18 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "44aba032-2821-4a7b-a734-707aaecea8d5")
+	)
+	(label "LINK_LED_K"
+		(at 33.02 160.02 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "732f41b4-3798-446a-9513-6b79e53661a6")
+	)
+	(label "MSG_LED_K"
+		(at 33.02 157.48 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "810c6864-ad18-4bbb-8775-ce0c119eaaaa")
+	)
+	(label "DESCR_D6"
+		(at 335.28 55.88 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8690d058-39d9-4f40-8647-14274093dbda")
+	)
+	(label "DESCR_D5"
+		(at 335.28 53.34 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "baaf5050-1e77-4b67-ae9d-13cb6efe3bd1")
+	)
+	(label "DESCR_D0"
+		(at 335.28 40.64 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e504ae6e-81c8-4cd3-b4a9-3e2d52163cb1")
 	)
 	(symbol
 		(lib_id "Device:R_Small")
@@ -8434,6 +9499,192 @@
 		)
 	)
 	(symbol
+		(lib_id "Interface_LineDriver:UA9638CP")
+		(at 187.96 -39.37 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5e75586d-0c0d-4d8d-a28e-507b72d2aace")
+		(property "Reference" "U10"
+			(at 187.0711 -50.8 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "UA9638CP"
+			(at 187.0711 -48.26 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+			(at 187.96 -26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ua9638.pdf"
+			(at 187.96 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual high-speed differential line driver, DIP-8"
+			(at 187.96 -39.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "8"
+			(uuid "7c4b771d-0ab3-4e29-ab52-2dab5c7f1ba5")
+		)
+		(pin "1"
+			(uuid "49895001-91d2-41fb-b1c3-678bd1843cff")
+		)
+		(pin "4"
+			(uuid "8ed63448-7e63-4779-83c4-e89df60cc430")
+		)
+		(pin "7"
+			(uuid "c1f5dbca-2db8-4272-9355-ce8b9a1cbd6d")
+		)
+		(pin "6"
+			(uuid "38bc9e60-e37c-4dfd-8965-e22d41809e27")
+		)
+		(pin "3"
+			(uuid "5a6cb1c5-7f1b-4b95-9288-565179a92378")
+		)
+		(pin "4"
+			(uuid "17df6a43-9917-430f-9c31-642466e94e80")
+		)
+		(pin "1"
+			(uuid "e2425abf-e116-4a43-9649-a104481ca0e8")
+		)
+		(pin "5"
+			(uuid "dc302157-1f9e-45fe-b5b0-6fc5d87bebad")
+		)
+		(pin "2"
+			(uuid "ba1a1b77-3f1d-4b64-96e7-6f321583dc32")
+		)
+		(instances
+			(project "nabu-na-logic"
+				(path "/5d908a34-2e9b-4fde-8e08-55fee65e9e02"
+					(reference "U10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Interface_LineDriver:UA9637")
+		(at 132.08 -7.62 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5f11d0d8-8daa-4037-9398-6fa22fd5efbe")
+		(property "Reference" "U11"
+			(at 142.24 -13.9386 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "UA9637"
+			(at 142.24 -11.3986 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+			(at 132.08 2.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://pdf.datasheetcatalog.com/datasheets2/28/284473_1.pdf"
+			(at 132.08 -7.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual differential line receiver, DIP-8"
+			(at 132.08 -7.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "96cfef56-9a1d-435c-808f-57b5f965a20f")
+		)
+		(pin "5"
+			(uuid "907252a2-6be5-42f4-a660-1b3d040208b2")
+		)
+		(pin "7"
+			(uuid "57fe820e-be2b-4e7f-9634-ae184f177c99")
+		)
+		(pin "3"
+			(uuid "15ac5efc-b56d-4a58-aa84-19b76ab8efe0")
+		)
+		(pin "8"
+			(uuid "9b01234c-397b-4ee5-b9e5-fca8dd28b55e")
+		)
+		(pin "1"
+			(uuid "4da2beff-c361-4a15-8243-b350b8e8ceb1")
+		)
+		(pin "4"
+			(uuid "ebf0a596-2aa8-4315-b913-7545f3ee41f4")
+		)
+		(pin "1"
+			(uuid "6bf0f0fb-3824-4458-ae6a-4a505282c989")
+		)
+		(pin "6"
+			(uuid "dcf74387-7242-4cde-a488-5f8b53d80f88")
+		)
+		(pin "2"
+			(uuid "437ae7a8-ac1d-40f7-9bee-d88e4b586683")
+		)
+		(instances
+			(project "nabu-na-logic"
+				(path "/5d908a34-2e9b-4fde-8e08-55fee65e9e02"
+					(reference "U11")
+					(unit 2)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 203.2 34.29 0)
 		(unit 1)
@@ -8838,6 +10089,98 @@
 			(project "nabu-na-logic"
 				(path "/5d908a34-2e9b-4fde-8e08-55fee65e9e02"
 					(reference "U14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Interface_LineDriver:UA9637")
+		(at 133.35 -36.83 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "81ccf5f3-533d-4581-ac63-571d6a0d8098")
+		(property "Reference" "U11"
+			(at 143.51 -43.1486 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "UA9637"
+			(at 143.51 -40.6086 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+			(at 133.35 -26.67 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://pdf.datasheetcatalog.com/datasheets2/28/284473_1.pdf"
+			(at 133.35 -36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual differential line receiver, DIP-8"
+			(at 133.35 -36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "96cfef56-9a1d-435c-808f-57b5f965a20f")
+		)
+		(pin "5"
+			(uuid "907252a2-6be5-42f4-a660-1b3d040208b2")
+		)
+		(pin "7"
+			(uuid "57fe820e-be2b-4e7f-9634-ae184f177c99")
+		)
+		(pin "3"
+			(uuid "15ac5efc-b56d-4a58-aa84-19b76ab8efe0")
+		)
+		(pin "8"
+			(uuid "9b01234c-397b-4ee5-b9e5-fca8dd28b55e")
+		)
+		(pin "1"
+			(uuid "4da2beff-c361-4a15-8243-b350b8e8ceb1")
+		)
+		(pin "4"
+			(uuid "ebf0a596-2aa8-4315-b913-7545f3ee41f4")
+		)
+		(pin "1"
+			(uuid "6bf0f0fb-3824-4458-ae6a-4a505282c989")
+		)
+		(pin "6"
+			(uuid "dcf74387-7242-4cde-a488-5f8b53d80f88")
+		)
+		(pin "2"
+			(uuid "437ae7a8-ac1d-40f7-9bee-d88e4b586683")
+		)
+		(instances
+			(project "nabu-na-logic"
+				(path "/5d908a34-2e9b-4fde-8e08-55fee65e9e02"
+					(reference "U11")
 					(unit 1)
 				)
 			)
@@ -10146,7 +11489,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 33.02 170.18 0)
+		(at 50.8 170.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -10155,7 +11498,7 @@
 		(fields_autoplaced yes)
 		(uuid "e40c6eb6-5654-4291-b198-78aaf93cfd77")
 		(property "Reference" "#PWR026"
-			(at 33.02 176.53 0)
+			(at 50.8 176.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10164,7 +11507,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 33.02 175.26 0)
+			(at 50.8 175.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10173,7 +11516,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 33.02 170.18 0)
+			(at 50.8 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10182,7 +11525,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 33.02 170.18 0)
+			(at 50.8 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10191,7 +11534,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 33.02 170.18 0)
+			(at 50.8 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10207,6 +11550,100 @@
 				(path "/5d908a34-2e9b-4fde-8e08-55fee65e9e02"
 					(reference "#PWR026")
 					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Interface_LineDriver:UA9638CP")
+		(at 187.96 -2.54 0)
+		(unit 2)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e78bdcce-e20e-4f91-8397-790301348680")
+		(property "Reference" "U10"
+			(at 187.0711 -13.97 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "UA9638CP"
+			(at 187.0711 -11.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_DIP:DIP-8_W7.62mm"
+			(at 187.96 10.16 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/ua9638.pdf"
+			(at 187.96 -2.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Dual high-speed differential line driver, DIP-8"
+			(at 187.96 -2.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "8"
+			(uuid "48335b84-6c50-4b0e-a1d8-02c05cbcda53")
+		)
+		(pin "1"
+			(uuid "5ff8a63e-d14b-461d-9725-f08744eb4252")
+		)
+		(pin "4"
+			(uuid "90269fc6-6ab0-4b43-bb72-b20d326a5ab6")
+		)
+		(pin "7"
+			(uuid "cb0b777e-34e5-4416-8716-817ebf4b91a8")
+		)
+		(pin "6"
+			(uuid "7fb11372-19c4-4b37-93ee-591c84e4cd87")
+		)
+		(pin "3"
+			(uuid "b2b7df5c-bcc0-4539-8e06-5687cd7b8242")
+		)
+		(pin "4"
+			(uuid "6825582a-3dda-410a-8787-1726fa712261")
+		)
+		(pin "1"
+			(uuid "f89b600e-a5e5-4a5c-8b79-3f13d3cd9eb2")
+		)
+		(pin "5"
+			(uuid "57dffda9-2df0-4756-9665-bc8182740aba")
+		)
+		(pin "2"
+			(uuid "ab96c6be-b1d7-4d35-9e4c-31a8455156fd")
+		)
+		(instances
+			(project "nabu-na-logic"
+				(path "/5d908a34-2e9b-4fde-8e08-55fee65e9e02"
+					(reference "U10")
+					(unit 2)
 				)
 			)
 		)
@@ -10742,7 +12179,7 @@
 	)
 	(sheet
 		(at 114.3 63.5)
-		(size 25.4 12.7)
+		(size 38.1 25.4)
 		(fields_autoplaced yes)
 		(stroke
 			(width 0.1524)
@@ -10762,7 +12199,7 @@
 			)
 		)
 		(property "Sheetfile" "processor.kicad_sch"
-			(at 114.3 76.7846 0)
+			(at 114.3 89.4846 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10780,17 +12217,57 @@
 			)
 			(uuid "87c86060-941c-45b9-a389-dd2302edd53a")
 		)
-		(pin "PANEL_PB5" output
-			(at 114.3 71.12 180)
+		(pin "DESCR_D[0..7]" input
+			(at 114.3 66.04 180)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 				(justify left)
 			)
-			(uuid "8d711b3e-9922-48f7-aea4-68a991537e18")
+			(uuid "16bc7ef4-b8ec-4c30-92d8-670193bfc804")
 		)
-		(pin "PANEL_PB4" output
+		(pin "PAL_P19" bidirectional
+			(at 152.4 66.04 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "4ec698c4-fa87-436d-b30d-172dea5e8ca7")
+		)
+		(pin "FIFO_EMPTY" output
+			(at 152.4 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "5a30c148-58d2-412a-a2a4-8acf4bfcab30")
+		)
+		(pin "PAL_P18" output
+			(at 152.4 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "ce47fbe8-3e63-49fe-80dc-7b1eaa4c5a4a")
+		)
+		(pin "LINK_LED#" output
+			(at 114.3 76.2 180)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+			(uuid "17d57762-6e19-4caf-a9a3-99592f6f7b47")
+		)
+		(pin "MSG_LED#" output
 			(at 114.3 73.66 180)
 			(effects
 				(font
@@ -10798,7 +12275,17 @@
 				)
 				(justify left)
 			)
-			(uuid "290cad0c-9646-48ab-a4ab-8a3016f44d02")
+			(uuid "9841cea8-7e78-4402-9c7b-ac1a605de8a5")
+		)
+		(pin "PAL_P17" output
+			(at 152.4 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+			(uuid "63d3f937-9629-4096-9107-7d9009ecebf3")
 		)
 		(instances
 			(project "nabu-na-logic"

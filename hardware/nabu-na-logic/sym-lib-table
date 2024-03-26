@@ -4,4 +4,5 @@
   (lib (name "western_digital")(type "KiCad")(uri "${KIPRJMOD}/western_digital.kicad_sym")(options "")(descr ""))
   (lib (name "signetics")(type "KiCad")(uri "${KIPRJMOD}/signetics.kicad_sym")(options "")(descr ""))
   (lib (name "intel")(type "KiCad")(uri "${KIPRJMOD}/intel.kicad_sym")(options "")(descr ""))
+  (lib (name "mmi")(type "KiCad")(uri "${KIPRJMOD}/mmi.kicad_sym")(options "")(descr ""))
 )
