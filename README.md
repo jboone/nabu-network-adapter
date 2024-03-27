@@ -37,17 +37,53 @@ A lot can be learned from looking up the circuit components, especially the inte
 
 ### RF Can
 
-We know this RF can contains some sort of cable TV receiver. It likely implements a multiple-conversion receiver, which uses multiple stages of filtering, frequency shifting, and amplification to isolate and boost the signal for the demodulation stage. Looking inside, we find six compartments:
+We know this RF can contains some sort of cable TV receiver. It likely implements a multiple-conversion receiver, which uses one or more stages of filtering, frequency shifting, and amplification to isolate and boost the desired signal for the demodulation stage.
 
-Two of the compartments are soldered shut, but when looking through the large adjustment holes, we can see there are large inductors, and there's no power terminals into these compoartments. A reasonable first guess is that these are passive filter stages.
+Looking inside, we find six compartments:
 
-The compartment closest to the cable TV connection has a few ICs, an 8 MHz crystal, and a [monolithic microwave integrated circuit](https://en.wikipedia.org/wiki/Monolithic_microwave_integrated_circuit) or "MMIC". The MC145155P is a frequency synthesizer, the CA3140E is an operational amplifier, and the SP4632 is a frequency prescaler. There's +5V and +18V power going into the compartment, along with three signals (EN, D, CLK) which likely tie to the three control signals of the MC145155P. Labels on the circuit board include "RF IN" and "IF FILTER" (with a wire that goes into the adjacent compartment). From my experience, this all suggests this is the first frequency-shifting stage. Using an [EMC probe](https://www.beehive-electronics.com/probes.html), I can detect a strong 324 MHz signal. Logic analysis of the MC145155 configuration pins (ENB, CLK, DATA) show a single transaction right at power-on, setting SW1=0, SW2=0, and N=324. Voltmeter tests of the MC145155 RA pins shows RA\[2:0\]=001, which sets the R divider to 512. Given the 8 MHz crystal, the R counter output must be 8 MHz / 512 = 15.625 kHz. Multiplying back through the N counter (configured to divide by 324), we get a frequency input of 15.625 kHz * 324 = 5.0625 MHz. It's a very safe assumption that the mixing local oscillator in this compartment is being divided by the SP4632 divide-by-64 prescaler before it goes into the PLL, which gives a mixing local oscillator frequency of 5.0625 MHz * 64 = 324 MHz. And that matches the dominant frequency spike I picked with my EMI probe!
+#### Compartment 1
 
-Skipping the two soldered-shut compartments, the fourth compartment contains two SL3127C high-frequency NPN transistor arrays and one MC1741C high-performance operational amplifier. The compartment only takes +18V power, and has one signal to/from the compartment. The only interesting labels is an "OUT" hole, which may be a test point.
+The compartment closest to the cable TV connection has a few integrated circuits, an 8 MHz crystal, and a [monolithic microwave integrated circuit](https://en.wikipedia.org/wiki/Monolithic_microwave_integrated_circuit) or "MMIC". The MC145155P is a frequency synthesizer, the CA3140E is an operational amplifier, and the SP4632 is a frequency prescaler. There's +5V and +18V power going into the compartment, along with three signals (labeled "EN", "D", and "CLK") which certainly tie to the three control signals of the MC145155P frequency synthesizer. Other labels on the circuit board include "RF IN" and "IF FILTER" (with a wire that goes into the adjacent compartment). From my experience, this all suggests this is the first frequency-shifting stage. Using an [EMC probe](https://www.beehive-electronics.com/probes.html), I can detect a strong 324 MHz signal. Logic analysis of the MC145155 configuration pins  show a single transaction right at power-on, setting SW1=0, SW2=0, and N=324. Voltmeter testing of the MC145155 RA pins shows RA\[2:0\]=001, which sets the R divider to 512. Given the 8 MHz crystal, the R counter output must be 8 MHz / 512 = 15.625 kHz. Multiplying back through the N counter (configured to divide by 324), we get a frequency input of 15.625 kHz * 324 = 5.0625 MHz. It's a safe assumption that the mixing local oscillator in this compartment is being divided by the SP4632 divide-by-64 prescaler before it goes into the PLL, which gives a mixing local oscillator frequency of 5.0625 MHz * 64 = 324 MHz. And that matches the dominant frequency spike I picked with my EMI probe! I love it when a plan comes together.
 
-The fifth compartment contains another SL3127C transistor array and another MC1741C op-amp, as well as a 14.270 MHz crystal. There's also a suspicious cluster of eight diodes, and four TO-92s labeled with "CR" and a number, suggesting they're actually diodes, not transistors. These diode clusters suggest mixers, which are used to perform frequency shifting. Other interesting labels on the circuit board are "IF INPUT", and two "DATA OUT" test points. The compartment takes +18V and has one other signal leaving the compartment, but not connected to anything on the outside.
+#### Compartments 2 and 3
 
-The sixth and last compartment has far less analog circuitry. It contains two MC1414P dual differential comparators, two 74LS86 quad XOR logic gates, two 74LS74 dual D flip-flops, and one 74LS00 quad NAND gates. There's also a 3.1555 MHz crystal. It takes +18V and +5V, and has two signals leaving the compartment, labeled "DATA" and "CLK". There's a few test points, a couple of pads marked "X". On the back side of the circuit board, there are two capacitors wired from the "X" pads to the adjacent compartment. Given the data and clock signals leaving the compartment (which go to the logic board), it seems quite safe to assume this is some portion (maybe all of?) the demodulator.
+These two compartments are soldered shut. When looking through the large adjustment holes, we can see there are coils of wire (inductors), and there's no power terminals into these compoartments. A reasonable first guess is that these are passive filter stages.
+
+#### Compartment 4
+
+This compartment contains two SL3127C high-frequency NPN transistor arrays and one MC1741C high-performance operational amplifier. The compartment only takes +18V power, and has one signal to/from the compartment. The only interesting labels is an "OUT" hole, which may be a test point. This compartment is a bit of mystery. My speculation is that it's an amplification stage, as there's few components (capacitors and inductors) I would associate with filtering, and no crystal-based clock source or clock signals coming from other compartments.
+
+__TODO__: Determine if there's some form of AGC at work here.
+
+__TODO__: Determine behavior of unused signal available on the terminal outside the compartment.
+
+#### Compartment 5
+
+This compartment contains another SL3127C transistor array and another MC1741C op-amp, as well as a 14.2470 MHz crystal. There's also a suspicious cluster of eight diodes, and four TO-92s labeled with "CR" and a number, suggesting they're actually diodes, not transistors. These diode clusters suggest mixers, which are used to perform frequency shifting. Other interesting labels on the circuit board are "IF INPUT", and two "DATA OUT" test points. The compartment takes +18V and has one other signal leaving the compartment, but not connected to anything on the outside.
+
+Probing around the diode cluster reveals that there's a constant frequency from a local oscillator being applied to the "bottom" leads of the diodes, while the "top" leads seem to have the cable input signal. Adjusting the cable input signal up and down in frequency changes the signal present on the "top" leads, suggesting that they're performing a mixing (frequency-shifting) role.
+
+__TODO__: Conclude that this is a quadrature demodulator?
+
+__TODO__: Demonstrate that the diodes are mixing in quadrature. Look at the LO side and the input signal side and note quadrature...?
+
+__TODO__: Observe "DATA OUT" signals at the same time, note quadrature...?
+
+__TODO__: Determine the 14.2470 MHz crystal's function. Is the LO in this compartment actually 4 x 14.2470 = 56.9880 MHz? Is there a filter picking out a harmonic, or some other form of double clock-doubling?
+
+__TODO__: Adjust your GNU Radio project to target 267.012 MHz, or 266.998 MHz?
+
+#### Compartment 6
+
+This last compartment has far less analog circuitry. It contains two MC1414P dual differential comparators, two 74LS86 quad XOR logic gates, two 74LS74 dual D flip-flops, and one 74LS00 quad NAND gates. There's also a 3.1555 MHz crystal. It takes +18V and +5V, and has two signals leaving the compartment, labeled "DATA" and "CLK". There's a few test points, a couple of pads marked "X". On the back side of the circuit board, there are two capacitors wired from the "X" pads to the adjacent compartment. Given the data and clock signals leaving the compartment (which go to the logic board), it seems quite safe to assume this is some portion (maybe all of?) the demodulator.
+
+Looking at the schematic, we see the comparators slicing the quadrature signals from quadrature demodulator in compartment 5. This turns the smooth analog voltages into squared-up logic voltage signals for the logic ICs in this compartment.
+
+The D flip flops are used to capture and delay the two quadrature signals. Exclusive OR logic gates compare the signals with their delayed version, outputting a "1" when the signal changes, and a "0" when it doesn't. This differential encoding simplifies the demodulator significantly, since it's the changes that represent the data, not the absolute polarity of the quadrature signals. In fact, when watching demodulator signals with the logic analyzer, you can see that the data in each of the quadrature channels swaps, or that the channels invert. So the encoding scheme for the modulation must take this in to account.
+
+The quadrature signals are captured at different times, using two clocks that are 180 degrees out of phase with each other (in other words, "inverted"). This validates the claim that the NABU Network using *Offset* QPSK, where one of the two quadrature channels' modulations is delayed by a half a symbol time, to avoid complications that arise in QPSK.
+
+__TODO__: Trace out the oscillator a bit more. There might be some sort of PLL in here, involving the U4 XORs, maybe pushing and pulling the oscillator crystal a bit to track the recovered symbol rate?
 
 __TODO__: Testing.
 
@@ -74,8 +110,11 @@ The RSSI signal is at a high voltage when no signal is present, or signal is ver
 The descrambler appears to be a [multiplicative descrambler](https://en.wikipedia.org/wiki/Scrambler#Multiplicative_(self-synchronizing)_scramblers), which is self-synchronizing. We can rule out an additive descrambler because there's no visible means in the schematic to initialize the scrambler's state. The polynomial is defined by which taps (flip-flop outputs) are being XORed together. The schematic shows taps at U20.Q0, U20.Q3, and U13.Q4. Rewritten as a polynomial equatiom, that'd be x^20 + x^3 + x^0. @philpem identified this polynomial as being used in [IESS-308](https://www.intelsat.com/wp-content/uploads/2020/08/IESS-308E11.pdf) and [ITU V.35](https://www.itu.int/rec/T-REC-V.35-198410-W/en).
 
 __TODO__: Frame synchronizer(?)
+
 __TODO__: PAL, PAL no. matching
+
 __TODO__: FIFO + RAM
+
 __TODO__: UART
 
 Educated guesses about the 28-pin Motorola SC87253P on the logic board led many of us to conclude independently that it's likely a mask ROM [MC6805](http://bitsavers.trailing-edge.com/components/motorola/6805/6805_Users_Manual_2ed_1983.pdf), most likely the MC6805P2. The pinout matches the circuit board layout very well. Power, clock, and reset signals match, and collections of data signals match the ports on the MC6805P2.
