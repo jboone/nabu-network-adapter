@@ -41,7 +41,7 @@ We know this RF can contains some sort of cable TV receiver. It likely implement
 
 Two of the compartments are soldered shut, but when looking through the large adjustment holes, we can see there are large inductors, and there's no power terminals into these compoartments. A reasonable first guess is that these are passive filter stages.
 
-The compartment closest to the cable TV connection has a few ICs, an 8 MHz crystal, and a [monolithic microwave integrated circuit](https://en.wikipedia.org/wiki/Monolithic_microwave_integrated_circuit) or "MMIC". The MC145155P is a frequency synthesizer, the CA3140E is an operational amplifier, and the SP4632 is a frequency prescaler. There's +5V and +18V power going into the compartment, along with three signals (EN, D, CLK) which likely tie to the three control signals of the MC145155P. Labels on the circuit board include "RF IN" and "IF FILTER" (with a wire that goes into the adjacent compartment). From my experience, this all suggests this is the first frequency-shifting stage. Using an [EMC probe](https://www.beehive-electronics.com/probes.html), I can detect a strong 325 MHz signal.
+The compartment closest to the cable TV connection has a few ICs, an 8 MHz crystal, and a [monolithic microwave integrated circuit](https://en.wikipedia.org/wiki/Monolithic_microwave_integrated_circuit) or "MMIC". The MC145155P is a frequency synthesizer, the CA3140E is an operational amplifier, and the SP4632 is a frequency prescaler. There's +5V and +18V power going into the compartment, along with three signals (EN, D, CLK) which likely tie to the three control signals of the MC145155P. Labels on the circuit board include "RF IN" and "IF FILTER" (with a wire that goes into the adjacent compartment). From my experience, this all suggests this is the first frequency-shifting stage. Using an [EMC probe](https://www.beehive-electronics.com/probes.html), I can detect a strong 324 MHz signal. Logic analysis of the MC145155 configuration pins (ENB, CLK, DATA) show a single transaction right at power-on, setting SW1=0, SW2=0, and N=324. Voltmeter tests of the MC145155 RA pins shows RA\[2:0\]=001, which sets the R divider to 512. Given the 8 MHz crystal, the R counter output must be 8 MHz / 512 = 15.625 kHz. Multiplying back through the N counter (configured to divide by 324), we get a frequency input of 15.625 kHz * 324 = 5.0625 MHz. It's a very safe assumption that the mixing local oscillator in this compartment is being divided by the SP4632 divide-by-64 prescaler before it goes into the PLL, which gives a mixing local oscillator frequency of 5.0625 MHz * 64 = 324 MHz. And that matches the dominant frequency spike I picked with my EMI probe!
 
 Skipping the two soldered-shut compartments, the fourth compartment contains two SL3127C high-frequency NPN transistor arrays and one MC1741C high-performance operational amplifier. The compartment only takes +18V power, and has one signal to/from the compartment. The only interesting labels is an "OUT" hole, which may be a test point.
 
@@ -54,6 +54,22 @@ __TODO__: Testing.
 ### Logic Board
 
 __TODO__: How did we identify the functional blocks? How did we hypothesize what they did? What do each of the fumctional blocks accomplish -- why are they there?
+
+Connector J3 comes from the RF can.
+
+| Pin | Function |
+| --- | -------- |
+|   1 | Ground   |
+|   2 | PLL ENB input, active high latch enable |
+|   3 | Received signal strength indication (RSSI)? |
+|   4 | PLL CLK input |
+|   5 | PLL DATA input, captured on clock rising edge  |
+|   6 | Ground    |
+|   7 | Demodulator clock output |
+|   8 | Ground    |
+|   9 | Demodulator data output, captured on clock rising edge |
+
+The RSSI signal is at a high voltage when no signal is present, or signal is very low signal strength. RSSI voltage drops to near 0V when signal is strong.
 
 The descrambler appears to be a [multiplicative descrambler](https://en.wikipedia.org/wiki/Scrambler#Multiplicative_(self-synchronizing)_scramblers), which is self-synchronizing. We can rule out an additive descrambler because there's no visible means in the schematic to initialize the scrambler's state. The polynomial is defined by which taps (flip-flop outputs) are being XORed together. The schematic shows taps at U20.Q0, U20.Q3, and U13.Q4. Rewritten as a polynomial equatiom, that'd be x^20 + x^3 + x^0. @philpem identified this polynomial as being used in [IESS-308](https://www.intelsat.com/wp-content/uploads/2020/08/IESS-308E11.pdf) and [ITU V.35](https://www.itu.int/rec/T-REC-V.35-198410-W/en).
 
