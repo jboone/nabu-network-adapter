@@ -35,9 +35,15 @@ Most of the secrets we need to learn can be unearthed by analyzing and dissectin
 
 A lot can be learned from looking up the circuit components, especially the integrated circuits, and noticing how they're laid out on the circuit board.
 
+##@ Power Supply
+
+This is a run of the mill linear power supply. There are two THOMSON-CSF regulators, an SFC2805RC for the +5V rail, and an SFC2818RC for the +18V rail. Both regulators are in TO-3 packages mounted to the rear of the Network Adapter chassis, with external heat sinks.
+
 ### RF Can
 
 We know this RF can contains some sort of cable TV receiver. It likely implements a multiple-conversion receiver, which uses one or more stages of filtering, frequency shifting, and amplification to isolate and boost the desired signal for the demodulation stage.
+
+It has an F connector that goes to the back of the Network Adapter, and is where the cable TV network is attached. There are three wires running directly to the power supply, and a 9-pin connector that goes to the logic board.
 
 Looking inside, we find six compartments:
 
